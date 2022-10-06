@@ -1,6 +1,6 @@
 import { addDoc, collection } from 'firebase/firestore'
 import db from '../db.js'
-import User from '../models/user.js'
+import User from '../models/User.js'
 
 export const addUser = async (req, res, next) => {
   try {
