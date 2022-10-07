@@ -16,8 +16,6 @@ const {
   MEASUREMENT_ID,
 } = process.env
 
-console.log(process.env.PORT)
-
 assert(PORT, 'PORT is required')
 assert(HOST, 'HOST is required')
 

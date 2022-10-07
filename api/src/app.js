@@ -16,6 +16,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // Routes
-app.use('/api', userRoutes.routes)
+app.use('/api/users', userRoutes.routes)
 
 export default app

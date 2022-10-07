@@ -1,5 +1,6 @@
 class User {
-  constructor(first, last, born) {
+  constructor(id, first, last, born) {
+    this.id = id
     this.first = first
     this.last = last
     this.born = born
