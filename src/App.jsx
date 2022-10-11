@@ -1,8 +1,16 @@
-// import logo from './logo.svg';
-import './App.css'
+import React from 'react';
+import './index.css';
+import Avatar from './Avatar';
+import Text from './TextImage';
 
 function App() {
-  return <div>Prueba</div>
+  return( 
+    <>
+      <Avatar/>
+      <Text/>
+    </>
+
+  )
 }
 
 export default App
