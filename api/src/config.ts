@@ -1,5 +1,4 @@
-import dotenv from 'dotenv'
-import assert from 'assert'
+import * as dotenv from 'dotenv'
 
 dotenv.config()
 
@@ -15,9 +14,6 @@ const {
   APP_ID,
   MEASUREMENT_ID,
 } = process.env
-
-assert(PORT, 'PORT is required')
-assert(HOST, 'HOST is required')
 
 export default {
   port: PORT,

@@ -1,7 +1,7 @@
 {
   "rules": {
       "prettier": {
-          "space-before-function-paren": ["error", "off"]
+          "space-before-function-paren": ["off", "error"]
       }
   }
 }
