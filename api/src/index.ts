@@ -1,5 +1,7 @@
-import config from './config'
+import * as dotenv from 'dotenv'
 import App from './app'
 
-const app = new App(config.port)
+dotenv.config()
+
+const app = new App(process.env.PORT)
 app.listen()

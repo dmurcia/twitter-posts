@@ -1,12 +1,11 @@
 import { Request, Response } from 'express'
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc, Timestamp } from 'firebase/firestore'
-import db from '../db'
+import { firebaseDb } from '../../firebase'
 import { UserModel } from '../models/user.model'
 import { Controller } from '../interfaces/Controller'
 
-class UserController implements Controller {
-  private USERS_COLLECTION = 'users'
-
+const USERS_COLLECTION = 'users'
+export default class UserController implements Controller {
   public async add(req: Request, res: Response) {
     try {
       const data = req.body
@@ -14,7 +13,7 @@ class UserController implements Controller {
         ...data,
         createdAt: Timestamp.fromDate(new Date()),
       }
-      const usersRef = collection(db, this.USERS_COLLECTION)
+      const usersRef = collection(firebaseDb, USERS_COLLECTION)
       await addDoc(usersRef, userData)
       res.send(`Record saved successfuly`)
     } catch (error) {
@@ -26,7 +25,7 @@ class UserController implements Controller {
     try {
       const id = req.params.id
       const data = req.body
-      const userRef = doc(db, this.USERS_COLLECTION, id)
+      const userRef = doc(firebaseDb, USERS_COLLECTION, id)
       await updateDoc(userRef, data)
       res.send(`User record updated successfuly`)
     } catch (error) {
@@ -37,7 +36,7 @@ class UserController implements Controller {
   public async delete(req: Request, res: Response) {
     try {
       const id = req.params.id
-      const userRef = doc(db, this.USERS_COLLECTION, id)
+      const userRef = doc(firebaseDb, USERS_COLLECTION, id)
       await deleteDoc(userRef)
       res.send('Record deleted successfuly')
     } catch (error) {
@@ -48,7 +47,7 @@ class UserController implements Controller {
   public async getOne(req: Request, res: Response) {
     try {
       const id = req.params.id
-      const ref = doc(db, this.USERS_COLLECTION, id)
+      const ref = doc(firebaseDb, USERS_COLLECTION, id)
       const snap = await getDoc(ref)
       const userData = snap.data()
       const userId = snap.id
@@ -69,7 +68,7 @@ class UserController implements Controller {
 
   public async getAll(req: Request, res: Response) {
     try {
-      const usersRef = collection(db, this.USERS_COLLECTION)
+      const usersRef = collection(firebaseDb, USERS_COLLECTION)
       const users = await getDocs(usersRef)
       const usersArray = []
       if (users.empty) {
@@ -92,5 +91,3 @@ class UserController implements Controller {
     }
   }
 }
-
-export default UserController

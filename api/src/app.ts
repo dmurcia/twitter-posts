@@ -4,6 +4,7 @@ import * as bodyParser from 'body-parser'
 
 import { usersRouter } from './routes/users.routes'
 import { authRouter } from './routes/auth.routes'
+import { authMiddleware } from './middlewares/auth.middleware'
 
 class App {
   public app: express.Application
@@ -24,6 +25,7 @@ class App {
   }
 
   private initMiddlewares() {
+    this.app.use(authMiddleware)
     this.app.use(cors())
     this.app.use(express.json())
     this.app.use(bodyParser.json())
