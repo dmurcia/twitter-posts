@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import * as firebaseAdmin from 'firebase-admin'
-import config from '../../../src/config'
+import config from '../../config'
 
 firebaseAdmin.initializeApp(config.firebaseConfig)
 

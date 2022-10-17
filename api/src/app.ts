@@ -3,14 +3,13 @@ import cors from 'cors'
 import * as bodyParser from 'body-parser'
 
 import { usersRouter } from './routes/users.routes'
-import { authRouter } from './routes/auth.routes'
 import { authMiddleware } from './middlewares/auth.middleware'
 
 class App {
   public app: express.Application
-  public port: string
+  public port: number
 
-  constructor(port: string) {
+  constructor(port: number) {
     this.app = express()
     this.port = port
 
@@ -33,7 +32,6 @@ class App {
 
   private initRouters() {
     this.app.use('/api/users', usersRouter)
-    this.app.use('/login', authRouter)
   }
 
   public listen() {

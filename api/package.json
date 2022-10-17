@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
-    "start": "ts-node src/App.ts"
+    "start": "ts-node src/app.ts"
   },
   "author": "",
   "license": "ISC",

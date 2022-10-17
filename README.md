@@ -14,6 +14,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+In the api directory, you can run:
+
+### `npm dev`
+
+Runs the server in the development mode
+You can do requests to [http://localhost:4040](http://localhost:4040) to login with Github
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
