@@ -13,5 +13,5 @@ export const firebaseConfig = {
   storageBucket: STORAGE_BUCKET,
   messagingSenderId: MESSAGING_SENDER_ID,
   appId: APP_ID,
-  measurementId: MEASUREMENT_ID,
+  measurementId: MEASUREMENT_ID
 }
