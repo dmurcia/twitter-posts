@@ -31,9 +31,10 @@
     "eslint-plugin-react": "^7.31.10",
     "happy-dom": "^6.0.4",
     "husky": "^8.0.1",
+    "install": "0.13.0",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "standard": "^17.0.0",
+    "npm": "8.19.2",
+    "prettier": "2.7.1",
     "vitest": "^0.23.4"
   },
   "browserslist": {
@@ -49,7 +50,7 @@
     ]
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.format:all": "prettier --write"
+    "*.{js,jsx}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
