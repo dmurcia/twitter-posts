@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getAuth, signOut } from 'firebase/auth'
+import { getAuth, signOut, signInWithPopup, GithubAuthProvider } from 'firebase/auth'
 import { firebaseConfig } from './config'
-import { signInWithPopup, GithubAuthProvider } from 'firebase/auth'
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
@@ -17,7 +16,7 @@ export const loginWithGithub = async () => {
       const credential = GithubAuthProvider.credentialFromResult(result)
       const token = credential.accessToken
       if (token) {
-        localStorage.setItem('@token', token)
+        globalThis.localStorage.setItem('@token', token)
       }
 
       // The signed-in user info.
@@ -33,6 +32,7 @@ export const loginWithGithub = async () => {
       const email = error.customData.email
       // The AuthCredential type that was used.
       const credential = GithubAuthProvider.credentialFromError(error)
+      console.log('error :>> ', errorCode, errorMessage, email, credential)
       // ...
     })
 }
@@ -40,10 +40,10 @@ export const loginWithGithub = async () => {
 export const signOutGithub = () => {
   signOut(auth)
     .then(() => {
-      localStorage.removeItem('@token')
-      location.href = '/'
+      globalThis.localStorage.removeItem('@token')
+      globalThis.location.href = '/'
     })
     .catch((error) => {
-      // An error happened.
+      console.log('error :>> ', error)
     })
 }

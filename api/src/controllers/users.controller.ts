@@ -17,7 +17,9 @@ export default class UserController implements Controller {
       await addDoc(usersRef, userData)
       res.send(`Record saved successfuly`)
     } catch (error) {
-      res.status(400).send(error.message)
+      let message = 'Unknown Error'
+      if (error instanceof Error) message = error.message
+      res.status(400).send(message)
     }
   }
 
