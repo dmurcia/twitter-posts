@@ -17,7 +17,12 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "vitest",
+    "lint": "eslint \"./src/**/*.{js,jsx}\" --cache --fix",
     "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmurcia/twitter-posts"
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
@@ -50,9 +55,8 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx}": "eslint . --fix",
     "**/*": "prettier --write --ignore-unknown",
-    "*.js": "eslint --cache --fix",
+    "*.{js,jsx}": "eslint \"./src/**/*.{js,jsx,vue}\" --cache --fix",
     "*.{js,css,md}": "prettier --write"
   }
 }
