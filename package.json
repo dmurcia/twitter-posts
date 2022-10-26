@@ -57,6 +57,6 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
     "*.{js,jsx}": "eslint \"./src/**/*.{js,jsx,vue}\" --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,css,md,jsx}": "prettier --write ."
   }
 }
