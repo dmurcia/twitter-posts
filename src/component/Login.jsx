@@ -1,7 +1,6 @@
-import React from 'react'
 import { loginWithGithub } from '../firebase/client'
 
-export const Login = () => {
+const Login = () => {
   return (
     <div>
       <h3>Login with Google</h3>
