@@ -16,10 +16,10 @@ const Comment = () => {
 
   return (
     <div>
-      <img src='' alt='' />
-      <form onSubmit={handleSubmit}>
+      <img src='' alt='' onClick={() => onOff()} />
+      <form onSubmit={handleClick}>
         <label>Comment</label>
-        <input type='text' placeholder='New comment' onChange={(e) => setMessage(e.target.value)} value={comment} />
+        <input type='text' placeholder='New comment' onChange={(e) => setcomment(e.target.value)} value={comment} />
         <button type='submit'>Sent</button>
       </form>
     </div>

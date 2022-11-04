@@ -2,7 +2,7 @@ import '../index.css'
 import Datetime from '../util/Date'
 
 const Text = ({ alt, text, img }) => {
-  var d = new Date(100000000)
+  const d = new Date(100000000)
   console.log(d.getTime())
 
   return (
