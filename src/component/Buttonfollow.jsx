@@ -7,19 +7,37 @@ import likeheart from '../img/likeheart.png'
 
 const Follow = ({ selecticon }) => {
   const [stateIcon, setIcon] = useState(false)
+  const [contLikes, setcontLike] = useState(0)
+  const [contRetweet, setcontRetweet] = useState(0)
 
   const onOff = () => {
     setIcon(!stateIcon)
+    if (selecticon === 'heart' && stateIcon === false) {
+      setcontLike(contLikes + 1)
+    }
+    if (selecticon === 'retweet' && stateIcon === false) {
+      setcontRetweet(contRetweet + 1)
+    }
   }
 
-  const parameter = 'w-8 h-8'
+  const parameter = 'w-6 h-6'
 
   const Icon = () => {
     switch (selecticon) {
       case 'heart':
-        return <img className={parameter} src={stateIcon ? likeheart : heart} alt=''></img>
+        return (
+          <>
+            <img className={parameter} src={stateIcon ? likeheart : heart} alt=''></img>
+            <div>{contLikes} Likes </div>
+          </>
+        )
       case 'retweet':
-        return <img className={parameter} src={stateIcon ? blueretweet : retweet} alt=''></img>
+        return (
+          <>
+            <img className={parameter} src={stateIcon ? blueretweet : retweet} alt=''></img>
+            <div>{contRetweet} Retweets</div>
+          </>
+        )
 
       default:
         return (

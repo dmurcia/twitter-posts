@@ -17,7 +17,7 @@ const Datetime = ({ timestamp }) => {
     return parseInt(secondsPast / 3600) + 'h'
   }
   if (secondsPast > 86400) {
-    hour = now
+    hour = timestamp
       .toLocaleTimeString([], {
         hour: '2-digit',
         minute: '2-digit',
@@ -25,12 +25,12 @@ const Datetime = ({ timestamp }) => {
       })
       .toUpperCase()
 
-    day = now.getDay()
-    month = now
+    day = timestamp.getDay()
+    month = timestamp
       .toDateString()
       .match(/ [a-zA-Z]*/)[0]
       .replace(' ', '')
-    year = now.getFullYear()
+    year = timestamp.getFullYear()
 
     return <div>{hour + ' ' + day + ' ' + month + ' ' + year}</div>
   }
