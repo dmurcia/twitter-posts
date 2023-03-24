@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import '../index.css'
-import blueretweet from '../img/blue-retweet.png'
-import retweet from '../img/retweet.png'
-import heart from '../img/heart.png'
-import likeheart from '../img/likeheart.png'
+import 'src/index.css'
+import blueRetweet from 'src/img/blue-retweet.png'
+import retweet from 'src/img/retweet.png'
+import heart from 'src/img/heart.png'
+import likeHeart from 'src/img/likeheart.png'
 
-const Follow = ({ selecticon }) => {
+const Follow = ({ selection }) => {
   const [stateIcon, setIcon] = useState(false)
 
   const onOff = () => {
@@ -15,11 +15,11 @@ const Follow = ({ selecticon }) => {
   const parameter = 'w-8 h-8'
 
   const Icon = () => {
-    switch (selecticon) {
+    switch (selection) {
       case 'heart':
-        return <img className={parameter} src={stateIcon ? likeheart : heart} alt=''></img>
+        return <img className={parameter} src={stateIcon ? likeHeart : heart} alt=''></img>
       case 'retweet':
-        return <img className={parameter} src={stateIcon ? blueretweet : retweet} alt=''></img>
+        return <img className={parameter} src={stateIcon ? blueRetweet : retweet} alt=''></img>
 
       default:
         return (

@@ -1,5 +1,5 @@
-import '../index.css'
-import i from '../img/avatar.png'
+import '../../../index.css'
+import i from '../../../img/avatar.png'
 
 const Name = ({ name, nametag }) => {
   return (

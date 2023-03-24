@@ -1,25 +1,29 @@
 import './index.css'
-import Name from './component/Avatar'
-import Text from './component/TextImage'
-import Follow from './component/Buttonfollow'
-// import Login from './component/Login'
-import { signOutGithub } from './firebase/client'
+import Home from './pages/home'
+import { AuthProvider } from './context/auth/authProvider'
+import { Routes, Route } from 'react-router-dom'
+import { PrivateRoute } from './routes/PrivateRoute'
+import Login from './pages/login'
 
-const App = () => {
-  // if (!localStorage.getItem('@token')) {
-  //   return <Login />
-  // } else {
+function App() {
   return (
-    <>
-      <Name name='Unblast' nametag='@unblast' />
-      <Text text='hola' alt='' img='' />
-      <Follow selecticon='retweet' />
-      <Follow selecticon='heart' />
-      <Follow selecticon />
-      <button onClick={signOutGithub}>Sign Out</button>
-    </>
+    <AuthProvider>
+      <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
+        Twitter posts
+      </h1>
+      <Routes>
+        <Route
+          path='/home'
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+    </AuthProvider>
   )
 }
-// }
 
 export default App

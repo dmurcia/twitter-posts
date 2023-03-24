@@ -1,19 +1,9 @@
-import React from 'react'
-import { loginWithGithub } from '../firebase/client'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
-import { redirect } from 'react-router'
-
-const handleClickLogin = async () => {
-  try {
-    const user = await loginWithGithub()
-    console.log('user', user)
-    if (user) {
-      redirect('/')
-    }
-  } catch (error) {}
-}
+import { useAuth } from 'src/hooks/useAuth'
 
 export const Login = () => {
+  const { signIn } = useAuth()
+
   return (
     <>
       <div className='flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
@@ -32,7 +22,7 @@ export const Login = () => {
             <div>
               <button
                 type='button'
-                onClick={handleClickLogin}
+                onClick={() => signIn()}
                 className='group relative 
                   flex 
                   w-full 

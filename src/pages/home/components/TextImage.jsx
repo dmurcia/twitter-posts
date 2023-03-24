@@ -1,10 +1,8 @@
-import '../index.css'
-import Datetime from '../util/Date'
+import 'src/index.css'
+import { Datetime } from 'src/util/Date'
 
 const Text = ({ alt, text, img }) => {
-  var d = new Date(100000000)
-  console.log(d.getTime())
-
+  const d = new Date(100000000)
   return (
     <div className=''>
       <p className='p-4 '>{text}</p>
