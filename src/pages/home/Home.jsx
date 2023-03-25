@@ -2,23 +2,26 @@ import { Avatar, ButtonFollow, TextImage } from './components'
 import { useAuth } from 'src/hooks/useAuth'
 import { Navigate } from 'react-router'
 import { routes } from 'src/config'
-import browserStorage from 'store'
 
 export default function Home() {
-  const auth = useAuth()
+  const { session, signOut } = useAuth()
 
-  if (!browserStorage.get('userData')) {
+  if (!session) {
     return <Navigate to={routes.login} />
   }
 
+  const { displayName, photoURL } = session
+
+  console.log('session', session)
+
   return (
     <>
-      <Avatar name='Unblast' nametag='@unblast' />
+      <Avatar name={displayName} photoUrl={photoURL} nametag='@unblast' />
       <TextImage text='hola' alt='' img='' />
       <ButtonFollow selecticon='retweet' />
       <ButtonFollow selecticon='heart' />
       <ButtonFollow selecticon />
-      <button onClick={() => auth.signOut()}>Sign Out</button>
+      <button onClick={() => signOut()}>Sign Out</button>
     </>
   )
 }

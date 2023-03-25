@@ -4,7 +4,7 @@ import { routes } from '../config'
 
 export function PrivateRoute({ children }) {
   const auth = useAuth()
-  if (!auth.user) {
+  if (!auth.session) {
     return <Navigate to={routes.login} replace />
   }
   return children

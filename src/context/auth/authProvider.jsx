@@ -1,27 +1,34 @@
-import { onAuthStateChanged } from 'firebase/auth'
-import { createContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
-import { auth, loginWithGithub, signOutGithub } from 'src/firebase/client'
-import { routes } from 'src/config'
+// import { onAuthStateChanged } from 'firebase/auth'
+import { createContext, useState } from 'react'
+import { loginWithGithub, signOutGithub } from 'src/firebase/client'
+import { store } from 'src/config'
 import browserStorage from 'store'
 
 export const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
-  const values = useProvideAuth()
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
+  const methods = useProvideAuth()
+  return <AuthContext.Provider value={methods}>{children}</AuthContext.Provider>
 }
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
-  const navigate = useNavigate()
+  const getSession = () => {
+    return browserStorage.get(store.session)
+  }
+  const setSessionBrowserStorage = (token) => {
+    browserStorage.set(store.session, token)
+    return true
+  }
+
+  const _auth = getSession()
+  const [session, setSession] = useState(_auth || '')
 
   const signIn = async () => {
     try {
       const user = await loginWithGithub()
-      browserStorage.set('userData', user)
-      setUser(user)
-      navigate(routes.home)
+      setSession(user)
+      setSessionBrowserStorage(user)
+      return true
     } catch (error) {
       throw new Error(error)
     }
@@ -30,23 +37,24 @@ function useProvideAuth() {
   const signOut = async () => {
     try {
       await signOutGithub()
-      setUser(false)
+      setSession(false)
     } catch (error) {
       return error
     }
   }
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user)
-    })
-    // Cleanup subscription on unmount
-    return () => unsubscribe()
-  }, [])
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     setSession(user)
+  //     setSessionBrowserStorage(user)
+  //   })
+  //   // Cleanup subscription on unmount
+  //   return () => unsubscribe()
+  // }, [])
 
   return {
-    user,
     signIn,
     signOut,
+    session,
   }
 }
