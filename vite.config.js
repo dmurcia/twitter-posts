@@ -7,7 +7,7 @@ export default defineConfig({
     // config the vitest
     environment: 'happy-dom',
     coverage: {
-      reporter: ['text', 'json', 'html']
-    }
-  }
+      reporter: ['text', 'json', 'html'],
+    },
+  },
 })
