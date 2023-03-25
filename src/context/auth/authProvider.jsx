@@ -2,12 +2,13 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { auth, loginWithGithub, signOutGithub } from 'src/firebase/client'
+import { routes } from 'src/config'
+import browserStorage from 'store'
 
 export const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
   const values = useProvideAuth()
-  console.log('values :>> ', values)
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }
 
@@ -18,9 +19,9 @@ function useProvideAuth() {
   const signIn = async () => {
     try {
       const user = await loginWithGithub()
-      console.log('user', user)
+      browserStorage.set('userData', user)
       setUser(user)
-      navigate('/home')
+      navigate(routes.home)
     } catch (error) {
       throw new Error(error)
     }
@@ -31,7 +32,7 @@ function useProvideAuth() {
       await signOutGithub()
       setUser(false)
     } catch (error) {
-      throw new Error(error)
+      return error
     }
   }
 

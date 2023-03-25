@@ -42,6 +42,8 @@ export const loginWithGithub = () => {
         const email = error.customData.email
         // The AuthCredential type that was used.
         const credential = GithubAuthProvider.credentialFromError(error)
+
+        reject(error)
         console.log('error :>> ', errorCode, errorMessage, email, credential)
         // ...
       })

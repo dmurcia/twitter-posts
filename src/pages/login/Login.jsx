@@ -1,8 +1,17 @@
 import { LockClosedIcon } from '@heroicons/react/20/solid'
+// import { Navigate } from 'react-router'
+// import { routes } from 'src/config'
 import { useAuth } from 'src/hooks/useAuth'
+import { Navigate } from 'react-router-dom'
+import browserStorage from 'store'
+import { routes } from 'src/config'
 
 export const Login = () => {
   const { signIn } = useAuth()
+
+  if (browserStorage.get('userData')) {
+    return <Navigate to={routes.home} />
+  }
 
   return (
     <>

@@ -1,9 +1,10 @@
 import './index.css'
 import Home from './pages/home'
+import Login from './pages/login'
 import { AuthProvider } from './context/auth/authProvider'
 import { Routes, Route } from 'react-router-dom'
 import { PrivateRoute } from './routes/PrivateRoute'
-import Login from './pages/login'
+import { routes } from 'src/config'
 
 function App() {
   return (
@@ -13,14 +14,14 @@ function App() {
       </h1>
       <Routes>
         <Route
-          path='/home'
+          path={routes.home}
           element={
             <PrivateRoute>
               <Home />
             </PrivateRoute>
           }
         />
-        <Route path='/login' element={<Login />} />
+        <Route path={routes.login} element={<Login />} />
       </Routes>
     </AuthProvider>
   )

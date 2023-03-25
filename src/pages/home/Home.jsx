@@ -1,8 +1,16 @@
 import { Avatar, ButtonFollow, TextImage } from './components'
 import { useAuth } from 'src/hooks/useAuth'
+import { Navigate } from 'react-router'
+import { routes } from 'src/config'
+import browserStorage from 'store'
 
 export default function Home() {
   const auth = useAuth()
+
+  if (!browserStorage.get('userData')) {
+    return <Navigate to={routes.login} />
+  }
+
   return (
     <>
       <Avatar name='Unblast' nametag='@unblast' />
