@@ -1,9 +1,10 @@
 import { Avatar, ButtonFollow, TextImage } from './components'
-import { useAuth } from 'src/hooks/useAuth'
+import React from 'react'
+import { useAuth } from '@app/hooks'
 import { Navigate } from 'react-router'
 import { routes } from 'src/config'
 
-export default function Home() {
+const Home: React.FC = () => {
   const { session, signOut } = useAuth()
 
   if (!session) {
@@ -16,12 +17,14 @@ export default function Home() {
 
   return (
     <>
-      <Avatar name={displayName} photoUrl={photoURL} nametag='@unblast' />
+      <Avatar name={displayName} photoUrl={photoURL} nameTag='@unblast' />
       <TextImage text='hola' alt='' img='' />
-      <ButtonFollow selecticon='retweet' />
-      <ButtonFollow selecticon='heart' />
-      <ButtonFollow selecticon />
+      <ButtonFollow selection='retweet' />
+      <ButtonFollow selection='heart' />
+      <ButtonFollow />
       <button onClick={() => signOut()}>Sign Out</button>
     </>
   )
 }
+
+export default Home

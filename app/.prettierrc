@@ -5,5 +5,21 @@
   "printWidth": 120,
   "semi": false,
   "trailingComma": "es5",
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "importOrder": [
+    "^@app/(.*)$",
+    "^(.\\/).*(?<!\\.css|js|jsx|ts|tsx|svg|png|jpg|jpeg)$",
+    "^.\\/(.*.js)$",
+    "^.\\/(.*.jsx)$",
+    "^.\\/(.*.ts)$",
+    "^.\\/(.*.tsx)$",
+    "^.\\/(.*.svg)$",
+    "^.\\/(.*.png)$",
+    "^.\\/(.*.jpg)$",
+    "^.\\/(.*.jpeg)$",
+    "^.\/(.*.module.css)$",
+    "^.\/(.*.css)$"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
 }

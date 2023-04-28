@@ -14,18 +14,20 @@
     "format:app": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
-    "prepare": "husky install"
+    "release": "turbo run build --filter=docs^... && changeset publish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dmurcia/twitter-posts.git"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.22.0",
+    "@types/store": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "eslint": "^8.26.0",
-    "husky": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
     "prettier": "2.7.1",
-    "typescript": "4.1.6",
-    "@changesets/cli": "^2.22.0"
+    "typescript": "4.1.6"
   }
 }

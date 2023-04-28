@@ -11,9 +11,12 @@
     "types": ["react/next", "react-dom/next"],           /* Specify type package names to be included without being referenced in a source file. */
 
   },
+  "paths": {
+    "@app/hooks": ["app/src/hooks/index.ts"]
+  },
   "exclude": [
     "./node_modules", "**/node_modules/*"],
   "include": [
     "./src"
-  ]
+, "image.d.ts"  ]
 }

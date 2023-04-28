@@ -26,4 +26,7 @@ module.exports = {
     'react/jsx-handler-names': 'off',
     'space-before-function-paren': 'off',
   },
+  globals: {
+    JSX: true,
+  }
 }

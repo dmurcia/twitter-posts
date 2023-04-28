@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import 'app/src/index.css'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import blueRetweet from 'app/src/img/blue-retweet.png'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import retweet from 'app/src/img/retweet.png'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import heart from 'app/src/img/heart.png'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import likeHeart from 'app/src/img/likeheart.png'
 
-const Follow = ({ selection }) => {
+interface ButtonFollowPropTypes {
+  selection?: string
+}
+
+const ButtonFollow: React.FC<ButtonFollowPropTypes> = ({ selection }) => {
   const [stateIcon, setIcon] = useState(false)
 
   const onOff = () => {
@@ -43,4 +55,4 @@ const Follow = ({ selection }) => {
   )
 }
 
-export default Follow
+export default ButtonFollow

@@ -8,8 +8,6 @@ specifiers:
   '@types/react': ^18.0.29
   '@types/react-dom': ^18.0.11
   '@vitejs/plugin-react': ^2.1.0
-  eslint-config-prettier: ^8.5.0
-  eslint-config-standard: ^17.0.0
   eslint-plugin-import: ^2.26.0
   eslint-plugin-n: ^15.3.0
   eslint-plugin-promise: ^6.1.1
@@ -45,8 +43,6 @@ dependencies:
 devDependencies:
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@vitejs/plugin-react': 2.2.0_vite@3.2.5
-  eslint-config-prettier: 8.8.0_eslint@8.36.0
-  eslint-config-standard: 17.0.0_htxjg2emk4phzexndh6sfdkv2u
   eslint-plugin-import: 2.27.5_74llxljztmzze2ez7aakaiqyti
   eslint-plugin-n: 15.6.1_eslint@8.36.0
   eslint-plugin-promise: 6.1.1_eslint@8.36.0
@@ -5230,15 +5226,6 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /eslint-config-prettier/8.8.0_eslint@8.36.0:
-    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
-    dependencies:
-      eslint: 8.36.0
-    dev: true
-
   /eslint-config-react-app/7.0.1_wqyc3vbambvdslb2tq3iw5m6b4:
     resolution: {integrity: sha512-K6rNzvkIeHaTd8m/QEh1Zko0KI7BACWkkneSs6s9cKZC/J27X3eZR6Upt1jkmZ/4FK+XUOPPxMEN7+lbUXfSlA==}
     engines: {node: '>=14.0.0'}
@@ -5273,20 +5260,6 @@ packages:
       - jest
       - supports-color
     dev: false
-
-  /eslint-config-standard/17.0.0_htxjg2emk4phzexndh6sfdkv2u:
-    resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
-    peerDependencies:
-      eslint: ^8.0.1
-      eslint-plugin-import: ^2.25.2
-      eslint-plugin-n: ^15.0.0
-      eslint-plugin-promise: ^6.0.0
-    dependencies:
-      eslint: 8.36.0
-      eslint-plugin-import: 2.27.5_74llxljztmzze2ez7aakaiqyti
-      eslint-plugin-n: 15.6.1_eslint@8.36.0
-      eslint-plugin-promise: 6.1.1_eslint@8.36.0
-    dev: true
 
   /eslint-import-resolver-node/0.3.7:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}

@@ -1,6 +1,13 @@
 import 'app/src/index.css'
+import React from 'react'
 
-const Name = ({ name, photoUrl, nameTag }) => {
+interface AvatarPropTypes {
+  name: string
+  photoUrl: string
+  nameTag: string
+}
+
+const Avatar: React.FC<AvatarPropTypes> = ({ name, photoUrl, nameTag }) => {
   return (
     <div className='flex items-center'>
       <img src={photoUrl} className='w-24 h-24'></img>
@@ -13,4 +20,4 @@ const Name = ({ name, photoUrl, nameTag }) => {
   )
 }
 
-export default Name
+export default Avatar
