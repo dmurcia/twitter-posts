@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import 'app/src/index.css'
+import '../../../index.css'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import blueRetweet from 'app/src/img/blue-retweet.png'
+import blueRetweet from '../../../assets/images/blue-retweet.png'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import retweet from 'app/src/img/retweet.png'
+import retweet from '../../../assets/images/retweet.png'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import heart from 'app/src/img/heart.png'
+import heart from '../../../assets/images/heart.png'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import likeHeart from 'app/src/img/likeheart.png'
+import likeHeart from '../../../assets/images/likeheart.png'
 
 interface ButtonFollowPropTypes {
   selection?: string

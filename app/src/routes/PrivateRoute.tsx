@@ -1,5 +1,5 @@
-import { useAuth } from '@app/hooks'
-import React from "react";
+import { useAuth } from '../hooks'
+import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { routes } from '../config'
 
@@ -8,8 +8,8 @@ interface PrivateProps {
 }
 
 const PrivateRoute: React.FC<PrivateProps> = ({ children }) => {
-  const { user } = useAuth()
-  if (!user) {
+  const { session } = useAuth()
+  if (!session) {
     return <Navigate to={routes.login} replace />
   }
   return children

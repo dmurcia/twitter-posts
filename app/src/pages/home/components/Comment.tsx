@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import 'app/src/index.css'
+import '../../../index.css'
 
 const Comment: React.FC = () => {
   const [comment, setComment] = useState<string>('')

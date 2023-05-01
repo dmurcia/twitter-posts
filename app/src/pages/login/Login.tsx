@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
-import { useAuth } from '@app/hooks'
+import { useAuth } from '../../hooks'
 
 const Login: React.FC = () => {
   const { signIn } = useAuth()

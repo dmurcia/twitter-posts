@@ -5,8 +5,7 @@ import Login from './pages/login'
 import PrivateRoute from './routes/PrivateRoute'
 import { AuthProvider } from './context/auth/authProvider'
 import { Routes, Route } from 'react-router-dom'
-import { routes } from 'src/config'
-
+import { routes } from './config'
 
 const App: React.FC = () => (
   <AuthProvider>

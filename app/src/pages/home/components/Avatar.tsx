@@ -1,4 +1,4 @@
-import 'app/src/index.css'
+import '../../../index.css'
 import React from 'react'
 
 interface AvatarPropTypes {

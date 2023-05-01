@@ -1,6 +1,6 @@
 import React from 'react'
-import 'app/src/index.css'
-import { Datetime } from 'src/util'
+import '../../../index.css'
+import { Datetime } from '../../../util'
 
 interface TextImagePropTypes {
   alt: string

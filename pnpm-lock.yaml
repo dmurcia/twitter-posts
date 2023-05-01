@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@changesets/cli': ^2.22.0
+  '@types/store': ^2.0.2
   '@typescript-eslint/eslint-plugin': ^5.57.0
   eslint: ^8.26.0
   eslint-config-prettier: ^8.5.0
@@ -11,6 +12,7 @@ specifiers:
 
 devDependencies:
   '@changesets/cli': 2.26.1
+  '@types/store': 2.0.2
   '@typescript-eslint/eslint-plugin': 5.57.0_gpzukqs36pntzklyqmji2f67li
   eslint: 8.36.0
   eslint-config-prettier: 8.8.0_eslint@8.36.0
@@ -362,6 +364,10 @@ packages:
 
   /@types/semver/7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
+    dev: true
+
+  /@types/store/2.0.2:
+    resolution: {integrity: sha512-ZPHnXkzmGMfk+pHqAGzTSpA9CbsHmJLgkvOl5w52LZ0XTxB1ZIHWZzQ7lEtjTNWScBbsQekg8TjApMXkMe4nkw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.57.0_gpzukqs36pntzklyqmji2f67li:

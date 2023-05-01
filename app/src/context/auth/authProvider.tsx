@@ -1,6 +1,6 @@
 import React from 'react'
 import { AuthProviderProps } from './ducks/types'
-import useProviderAuth from 'src/hooks/useProviderAuth'
+import { useProviderAuth } from '../../hooks'
 
 interface AuthContextType {
   signIn: any
@@ -11,9 +11,8 @@ interface AuthContextType {
 export const AuthContext = React.createContext<AuthContextType>({
   signIn: null,
   signOut: null,
-  session: {}
-});
-
+  session: {},
+})
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const methods = useProviderAuth()

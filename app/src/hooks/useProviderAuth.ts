@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { User } from 'firebase/auth'
-import { loginWithGithub, signOutGithub } from 'src/firebase/client'
-import { store } from 'src/config'
+import { loginWithGithub, signOutGithub } from '../firebase/client'
+import { store } from '../config'
 import * as browserStorage from 'store'
 
-const useProvideAuth = () => {
+const useProviderAuth = () => {
   const getSession = (): User => {
     return browserStorage.get(store.session)
   }
@@ -22,7 +22,7 @@ const useProvideAuth = () => {
       setSession(user)
       setSessionBrowserStorage(user)
       return true
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error)
     }
   }
@@ -31,7 +31,7 @@ const useProvideAuth = () => {
     try {
       await signOutGithub()
       setSession(null)
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error)
     }
   }
@@ -43,4 +43,4 @@ const useProvideAuth = () => {
   }
 }
 
-export default useProvideAuth
+export default useProviderAuth

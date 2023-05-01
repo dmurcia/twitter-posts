@@ -1,8 +1,8 @@
 import { Avatar, ButtonFollow, TextImage } from './components'
 import React from 'react'
-import { useAuth } from '@app/hooks'
+import { useAuth } from '../../hooks'
 import { Navigate } from 'react-router'
-import { routes } from 'src/config'
+import { routes } from '../../config'
 
 const Home: React.FC = () => {
   const { session, signOut } = useAuth()
