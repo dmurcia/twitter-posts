@@ -1,5 +1,5 @@
 {
   "extends": "tsconfig/react-app.json",
-  "include": ["./src"],
-  "exclude": ["./node_modules/*"],
+  "include": ["./src", "postcss.config.js", "tailwing.config.js"],
+  "exclude": ["./node_modules/*"]
 }
