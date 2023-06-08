@@ -1,31 +1,16 @@
 import React from 'react'
 import './index.css'
-import Home from './pages/home'
-import Login from './pages/login'
-import PrivateRoute from './routes/PrivateRoute'
-import { AuthProvider } from './context/auth/authProvider'
-import { Routes, Route } from 'react-router-dom'
-import { routes } from './config'
+import { MainRouter } from './routes'
 
 const App: React.FC = () => (
-  <AuthProvider>
-    <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
+  <>
+    <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
       Twitter posts
     </h1>
-    <main className='w-full max-w-4xl m-auto flex flex-col'>
-      <Routes>
-        <Route
-          path={routes.home}
-          element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
-          }
-        />
-        <Route path={routes.login} element={<Login />} />
-      </Routes>
+    <main className="w-full max-w-4xl m-auto flex flex-col">
+      <MainRouter />
     </main>
-  </AuthProvider>
+  </>
 )
 
 export default App
