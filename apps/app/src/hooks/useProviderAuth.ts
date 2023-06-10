@@ -1,40 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { User } from 'firebase/auth'
 import { loginWithGithub, signOutGithub } from '../firebase/client'
 import { store } from '../config'
 import * as browserStorage from 'store'
 
+const getSession = (): User => browserStorage.get(store.session)
+const setSessionBrowserStorage = (user: User) => browserStorage.set(store.session, user)
+const deleteSessionBrowserStorage = () => browserStorage.remove(store.session)
+
 const useProviderAuth = () => {
-  const getSession = (): User => {
-    return browserStorage.get(store.session)
-  }
-  const setSessionBrowserStorage = (user: User): boolean => {
-    browserStorage.set(store.session, user)
-    return true
-  }
+  const [session, setSession] = useState<User | null>()
 
-  const _auth = getSession()
-  const [session, setSession] = useState<User | null>(_auth || null)
-
-  const signIn = async (): Promise<boolean> => {
+  const signIn = useCallback(async () => {
     try {
       const user: User = await loginWithGithub()
       setSession(user)
       setSessionBrowserStorage(user)
-      return true
     } catch (error: any) {
       throw new Error(error)
     }
-  }
+  }, [setSession, setSessionBrowserStorage])
 
-  const signOut = async (): Promise<void> => {
+  const signOut = useCallback(async () => {
+    console.log('signOut')
     try {
       await signOutGithub()
+      deleteSessionBrowserStorage()
       setSession(null)
     } catch (error: any) {
       throw new Error(error)
     }
-  }
+  }, [setSession])
+
+  useEffect(() => {
+    setSession(getSession)
+  }, [])
 
   return {
     signIn,

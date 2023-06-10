@@ -1,4 +1,4 @@
-export const month = [
+export const monthList = [
   'January',
   'February',
   'March',
@@ -12,3 +12,9 @@ export const month = [
   'November',
   'December',
 ]
+
+export enum TIMES {
+  Minute = 60,
+  Hour = Minute * 60,
+  Day = Hour * 24,
+}

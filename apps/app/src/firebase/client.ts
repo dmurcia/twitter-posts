@@ -1,14 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getAuth, signOut, signInWithPopup, GithubAuthProvider, User } from 'firebase/auth'
-// import { User } from 'src/config/types'
 import { firebaseConfig } from './config'
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 
-export const loginWithGithub = (): Promise<User> => 
+export const loginWithGithub = (): Promise<User> =>
   new Promise((resolve, reject) => {
     const githubProvider = new GithubAuthProvider()
 
@@ -31,21 +30,20 @@ export const loginWithGithub = (): Promise<User> =>
         const email = error.customData.email
         // The AuthCredential type that was used.
         const credential = GithubAuthProvider.credentialFromError(error)
-
-        reject(error)
         console.log('error :>> ', errorCode, errorMessage, email, credential)
-        // ...
+        reject(error)
       })
   })
 
-export const signOutGithub = () => {
-  return new Promise(() => {
+export const signOutGithub = (): Promise<void> => {
+  return new Promise((resolve, reject) => {
     signOut(auth)
       .then(() => {
         globalThis.localStorage.removeItem('@token')
+        resolve()
       })
       .catch((error) => {
-        throw new Error(`Sign out failed ${error}`)
+        reject(error)
       })
   })
 }

@@ -18,6 +18,8 @@
     "react-router": "^6.4.2",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-icons": "4.9.0",
+    "@material-tailwind/react": "2.0.1",
     "store": "^2.0.12",
     "web-vitals": "^3.3.2"
   },
@@ -38,7 +40,7 @@
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.3.2",
     "tsconfig": "workspace:*",
-    "typescript": "4" 
+    "typescript": "4"
   },
   "repository": {
     "type": "git",

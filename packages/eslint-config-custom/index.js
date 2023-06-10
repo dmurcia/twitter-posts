@@ -5,6 +5,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-handler-names': 'off',
     'space-before-function-paren': 'off',
+    'no-unused-vars': 'off'
   },
   settings: {
     react: {
